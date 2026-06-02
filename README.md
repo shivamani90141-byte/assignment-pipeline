@@ -1,49 +1,34 @@
 # Assignment Pipeline
 
-A scalable backend pipeline system designed to automate assignment processing, validation, storage, and workflow management.
+A simple Node.js and Express application containerized using Docker and designed to demonstrate basic CI/CD and deployment workflow practices.
 
 ## Overview
 
-This project implements a structured pipeline architecture for handling assignments efficiently through multiple processing stages such as:
+This project was created as part of an assignment to demonstrate:
 
-- Data ingestion
-- Validation
-- Processing
-- Storage
-- Error handling
-- Logging and monitoring
+* Node.js application development
+* Express.js server setup
+* Docker containerization
+* Dependency management using npm
+* Basic deployment readiness
+* CI/CD workflow integration
 
-The goal of this project is to demonstrate clean backend architecture, modular pipeline design, and production-style engineering practices.
-
----
-
-## Features
-
-- Modular pipeline architecture
-- Clean folder structure
-- API integration support
-- Input validation
-- Error handling and logging
-- Scalable processing workflow
-- Environment variable configuration
-- Easy deployment setup
+The application exposes a simple HTTP endpoint and can be run locally or inside a Docker container.
 
 ---
 
 ## Tech Stack
 
 ### Backend
-- Node.js
-- Express.js
 
-### Database
-- MongoDB / PostgreSQL
+* Node.js
+* Express.js
 
-### Other Tools
-- Git & GitHub
-- Postman
-- dotenv
-- npm
+### DevOps
+
+* Docker
+* GitHub
+* GitHub Actions
 
 ---
 
@@ -52,17 +37,11 @@ The goal of this project is to demonstrate clean backend architecture, modular p
 ```bash
 assignment-pipeline/
 │
-├── src/
-│   ├── controllers/
-│   ├── routes/
-│   ├── services/
-│   ├── middleware/
-│   ├── models/
-│   ├── utils/
-│   └── config/
-│
+├── index.js
 ├── package.json
-├── .env
+├── package-lock.json
+├── Dockerfile
+├── .gitignore
 └── README.md
 ```
 
@@ -90,67 +69,83 @@ npm install
 
 ---
 
-## Environment Variables
+## Running Locally
 
-Create a `.env` file in the root directory and add:
-
-```env
-PORT=5000
-MONGO_URI=your_database_connection
-JWT_SECRET=your_secret_key
-```
-
----
-
-## Running the Project
-
-Start development server:
-
-```bash
-npm run dev
-```
-
-Start production server:
+Start the application:
 
 ```bash
 npm start
 ```
 
+The server will run on:
+
+```bash
+http://localhost:3000
+```
+
+Expected response:
+
+```text
+Hello World! My automated pipeline is successful.
+```
+
 ---
 
-## API Endpoints
+## API Endpoint
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api | Test API |
-| POST | /api/upload | Upload assignment |
-| GET | /api/assignments | Fetch assignments |
-
-> Update these endpoints according to your actual project routes.
+| Method | Endpoint | Description                        |
+| ------ | -------- | ---------------------------------- |
+| GET    | /        | Returns application status message |
 
 ---
 
-## Learning Outcomes
+## Docker Setup
 
-Through this project, I practiced:
+Build Docker image:
 
-- Backend architecture design
-- REST API development
-- Pipeline-based processing
-- Database integration
-- Error handling strategies
-- Clean code organization
+```bash
+docker build -t assignment-pipeline .
+```
+
+Run Docker container:
+
+```bash
+docker run -p 3000:3000 assignment-pipeline
+```
+
+Access application:
+
+```bash
+http://localhost:3000
+```
+
+---
+
+## CI/CD
+
+The repository includes a GitHub Actions workflow that can be used to automate build and deployment processes whenever code changes are pushed to the repository.
+
+Typical CI/CD stages include:
+
+* Source code checkout
+* Dependency installation
+* Application build
+* Docker image creation
+* Container registry publishing
+* Deployment automation
 
 ---
 
 ## Future Improvements
 
-- Authentication & authorization
-- Docker support
-- CI/CD pipeline
-- Unit & integration testing
-- Queue-based processing
-- Cloud deployment
+* Environment variable configuration
+* Multiple API endpoints
+* Request validation
+* Structured logging
+* Health check endpoints
+* Unit testing
+* Cloud deployment
+* Monitoring and observability
 
 ---
 
@@ -158,7 +153,7 @@ Through this project, I practiced:
 
 **Shivamani**
 
-GitHub:  
+GitHub:
 https://github.com/shivamani90141-byte
 
 ---
